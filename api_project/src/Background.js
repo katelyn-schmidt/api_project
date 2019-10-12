@@ -37,16 +37,23 @@ class Background extends Component {
         this.setState({ output: json.contents.translated });
     }
 
+    buttons() {
+        if(document.getElementById('button').clicked == true) {
+            this.componentDidMount();
+        }
+    }
+
     render() {
-        this.componentDidMount()
+        //this.componentDidMount()
         return (
         <div className="output">
             <div>
             <form>
                 <label>
-                Input:
-                <input type="text" name="input" value={this.state.input} onChange={this.handleChange} />
+                Type here!<br></br>
+                <input id="button" type="text" name="input" value={this.state.input} onChange={this.handleChange} />
                </label>
+               <input type="submit" value="Translate!"/>
             </form>
             </div>
             <div>
