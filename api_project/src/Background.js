@@ -8,7 +8,7 @@ class Background extends Component {
         super();
         this.state = {
             input: "",
-            output: ""
+            output: ''
         };
     }
 
@@ -23,7 +23,11 @@ class Background extends Component {
     }
 
     getURL() {
-        return 'https://api.funtranslations.com/translate/yoda.json?text='+'\"'+this.state.input+'\"';
+        this.getInput()
+        let urlstr = 'https://api.funtranslations.com/translate/yoda.json?text='+this.state.input;
+        let urlstr2 = 'https://api.funtranslations.com/translate/yoda.json?text="'+this.state.input+"\"";
+        console.log(urlstr)
+        return urlstr2;
     }
 
     async componentDidMount() {
@@ -34,7 +38,7 @@ class Background extends Component {
     }
 
     render() {
-        {this.getInput()}
+        this.componentDidMount()
         return (
         <div className="output">
             <div>
@@ -43,7 +47,6 @@ class Background extends Component {
                 Input:
                 <input type="text" name="input" value={this.state.input} onChange={this.handleChange} />
                </label>
-                 <input type="submit" value="Submit" />
             </form>
             </div>
             <div>
