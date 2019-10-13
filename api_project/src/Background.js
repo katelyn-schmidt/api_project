@@ -34,30 +34,30 @@ class Background extends Component {
         const response = await
         fetch(this.getURL())
         const json = await response.json();
+        // if {json.error} == null:
+
         this.setState({ output: json.contents.translated });
     }
 
     buttons() {
-        if(document.getElementById('button').clicked == true) {
-            this.componentDidMount();
-        }
+        this.componentDidMount()
     }
 
     render() {
-        //this.componentDidMount()
         return (
         <div className="output">
             <div>
             <form>
                 <label>
                 Type here!<br></br>
-                <input id="button" type="text" name="input" value={this.state.input} onChange={this.handleChange} />
+                <input type="text" name="input" value={this.state.input} onChange={this.handleChange} />
                </label>
-               <input type="submit" value="Translate!"/>
+               
             </form>
+            <button onClick={() => this.componentDidMount()} id="button" type="submit" value="Translate!"/>
             </div>
             <div>
-                {this.state.output}
+                {this.state.output.replace('\"', '').replace('\"', '')}
             </div>
             
         </div>
