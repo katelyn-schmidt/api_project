@@ -54,7 +54,7 @@ class Background extends Component {
                </label>
                
             </form>
-            <button onClick={() => this.componentDidMount()} id="button" type="submit" value="Translate!"/>
+            <button onClick={() => this.componentDidMount()} id="button" type="submit" value="Translate!"> Translate! </button>
             </div>
             <div>
                 {this.state.output.replace('\"', '').replace('\"', '')}
